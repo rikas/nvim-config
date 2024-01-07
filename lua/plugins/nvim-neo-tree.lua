@@ -41,7 +41,10 @@ return {
         },
         window = {
           mappings = {
-            ["l"] = "open" -- open with l key
+            -- open with l key
+            ["l"] = "open",
+            -- space is my leader
+            ["<space>"] = "none"
           }
         },
       },
