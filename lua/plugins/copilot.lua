@@ -1,49 +1,24 @@
-return {
-  "zbirenbaum/copilot.lua",
-  cmd = "Copilot",
-  event = "InsertEnter",
-  config = function()
-    require("copilot").setup({
-      panel = {
-        enabled = false,
-        auto_refresh = false,
-        keymap = {
-          jump_prev = "pp",
-          jump_next = "pn",
-          accept = "<CR>",
-          refresh = "gr",
-          open = "<M-CR>",
-        },
-        layout = {
-          position = "bottom", -- | top | left | right
-          ratio = 0.4,
-        },
-      },
-      suggestion = {
-        enabled = false,
-        auto_trigger = true,
-        debounce = 75,
-        keymap = {
-          accept = false,
-          accept_word = false,
-          accept_line = false,
-          next = "<M-]>",
-          prev = "<M-[>",
-          dismiss = "<C-]>",
-        },
-      },
-      filetypes = {
-        help = false,
-        gitcommit = false,
-        gitrebase = false,
-        hgcommit = false,
-        svn = false,
-        cvs = false,
-        ["."] = false,
-      },
-      copilot_node_command = "node", -- Node.js version must be > 16.x
-      server_opts_overrides = {},
-      on_status_update = require("lualine").refresh,
-    })
-  end,
-}
+require("copilot").setup({
+  panel = {
+    enabled = true,
+    auto_refresh = true,
+  },
+  suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    accept = false, -- disable built-in keymapping
+  },
+})
+
+-- hide copilot suggestions when cmp menu is open
+-- to prevent odd behavior/garbled up suggestions
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if cmp_status_ok then
+  cmp.event:on("menu_opened", function()
+    vim.b.copilot_suggestion_hidden = true
+  end)
+
+  cmp.event:on("menu_closed", function()
+    vim.b.copilot_suggestion_hidden = false
+  end)
+end

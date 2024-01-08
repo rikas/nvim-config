@@ -22,7 +22,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -37,13 +37,12 @@ vim.opt.updatetime = 50
 -- Prevent neovim commenting out next line after a comment line
 vim.opt.formatoptions:remove({ "r", "o" })
 
-local function augroup(name)
-  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
-end
+-- Colorscheme
+vim.cmd.colorscheme "catppuccin-mocha"
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+-- Ignore these files when expanding wildcards
+vim.opt.wildignore:append { "node_modules/**", "dist/**", "build/**" }
+
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])

@@ -19,25 +19,9 @@ _G.cursorword_blocklist = function()
   vim.b.minicursorword_disable = vim.tbl_contains(blocklist, curword)
 end
 
+-- Do not highlight based on the function above
 vim.cmd('au CursorMoved * lua _G.cursorword_blocklist()')
 
-
-return {
-  "echasnovski/mini.nvim",
-  version = false,
-  config = function()
-    require('mini.comment').setup()
-    require('mini.bufremove').setup()
-    require('mini.cursorword').setup({
-      delay = 150
-    })
-
-    -- Change the default highlight groups for mini.cursorword
-    vim.cmd('hi! link MiniCursorword Visual')
-    vim.cmd('hi! link MiniCursorwordCurrent MiniCursorword')
-
-    require('mini.pairs').setup()
-    require('mini.surround').setup()
-    require('mini.trailspace').setup()
-  end
-}
+-- Change the default highlight groups for mini.cursorword
+vim.cmd('hi! link MiniCursorword Visual')
+vim.cmd('hi! link MiniCursorwordCurrent MiniCursorword')
