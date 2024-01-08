@@ -38,7 +38,6 @@ require("lazy").setup({
       cmd = "Copilot",
       build = ":Copilot auth",
       event = "InsertEnter",
-      opts = {}
     },
 
     { -- Autocompletion
