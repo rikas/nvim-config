@@ -1,7 +1,7 @@
 require("catppuccin").setup({
   term_colors = true,
   transparent_background = false,
-
+  flavour = "mocha",
   styles = {
     comments = {},
     conditionals = {},
@@ -33,8 +33,7 @@ require("catppuccin").setup({
     mini = true,
     cmp = true,
     telescope = {
-      enabled = false,
-      style = "minimal",
+      enabled = true,
     },
   }
 })
