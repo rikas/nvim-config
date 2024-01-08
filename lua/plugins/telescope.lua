@@ -1,3 +1,35 @@
+require("telescope").setup({
+  pickers = {
+    find_files = {
+      previewer = true,
+      sorting_strategy = "ascending",
+      layout_config = { prompt_position = "top" },
+    },
+    buffers = {
+      theme = "dropdown",
+      previewer = true,
+    },
+    help_tags = {
+      theme = "dropdown",
+      previewer = true,
+    },
+    oldfiles = {
+      previewer = true,
+      sorting_strategy = "ascending",
+      layout_config = { prompt_position = "top" }
+    },
+    lsp_document_symbols = {
+      previewer = true,
+      sorting_strategy = "ascending",
+      layout_config = { prompt_position = "top" }
+    },
+    grep_string = {
+      theme = "dropdown",
+      previewer = true,
+    },
+  },
+})
+
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader><leader>", function() telescope.find_files() end, { desc = "Find file" })
 vim.keymap.set("n", "<leader>fg", function() telescope.live_grep() end, { desc = "Grep in files" })

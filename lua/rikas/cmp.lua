@@ -1,10 +1,7 @@
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 
-cmp.setup {
-  view = {
-    entries = "native"
-  },
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -12,9 +9,9 @@ cmp.setup {
   },
   window = {
     completion = {
-      -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-      -- col_offset = -3,
-      -- side_padding = 0,
+      border = "rounded",
+      side_padding = 1,
+      col_offset = 1,
     },
   },
   mapping = cmp.mapping.preset.insert {
@@ -59,4 +56,4 @@ cmp.setup {
   formatting = {
     format = require("lspkind").cmp_format({ mode = "symbol_text" }),
   },
-}
+})

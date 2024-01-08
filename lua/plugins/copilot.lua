@@ -1,6 +1,6 @@
 require("copilot").setup({
   panel = {
-    enabled = true,
+    enabled = false,
     auto_refresh = true,
   },
   suggestion = {
