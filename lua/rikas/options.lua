@@ -38,7 +38,7 @@ vim.opt.updatetime = 50
 vim.opt.formatoptions:remove({ "r", "o" })
 
 -- Colorscheme
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd.colorscheme "catppuccin"
 
 -- Ignore these files when expanding wildcards
 vim.opt.wildignore:append { "node_modules/**", "dist/**", "build/**" }
