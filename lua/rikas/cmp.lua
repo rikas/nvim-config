@@ -50,7 +50,7 @@ cmp.setup({
     { name = "buffer",  keyword_length = 3 }
   },
   experimental = {
-    ghost_text = true
+    ghost_text = true -- we need this for copilot to work properly!
   },
 
   formatting = {
