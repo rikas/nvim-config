@@ -18,13 +18,33 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
-    "tsserver",
+    "tsserver", "lua_ls", "eslint", "ruby_ls"
   },
   handlers = {
     lsp_zero.default_setup,
+
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+
+    tsserver = function()
+      require('lspconfig').tsserver.setup({})
+    end,
+
+    ruby_ls = function()
+      require('lspconfig').ruby_ls.setup({})
+    end,
+
+    eslint = function()
+      require("lspconfig").eslint.setup({
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            buffer = bufnr,
+            command = "EslintFixAll"
+          })
+        end
+      })
     end
   }
 })
