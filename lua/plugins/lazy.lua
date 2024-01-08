@@ -45,6 +45,10 @@ require("lazy").setup({
       dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
     },
 
+    { --VSCode style icons to use in cmp menu
+      "onsails/lspkind.nvim"
+    },
+
     { -- Sidebar with file tree
       "nvim-neo-tree/neo-tree.nvim",
       dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" }
@@ -54,6 +58,7 @@ require("lazy").setup({
       "catppuccin/nvim",
       lazy = false,
       name = "catppuccin",
+      opts = {}
     },
 
     { -- Name of the current buffer in the upper right corner
@@ -107,6 +112,14 @@ require("lazy").setup({
       dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
       }
+    },
+
+    { -- Smarter comments using treesitter
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      lazy = true,
+      opts = {
+        enable_autocmd = false,
+      },
     },
 
     {

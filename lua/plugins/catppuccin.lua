@@ -16,14 +16,6 @@ require("catppuccin").setup({
     types = {},
   },
 
-  color_overrides = {
-    mocha = {
-      base = "#111111",
-      mantle = "#111111",
-      crust = "#111111",
-    },
-  },
-
   integrations = {
     indent_blankline = { enabled = true },
     native_lsp = {
@@ -41,7 +33,7 @@ require("catppuccin").setup({
     mini = true,
     cmp = true,
     telescope = {
-      enabled = true,
+      enabled = false,
       style = "minimal",
     },
   }
