@@ -1,7 +1,7 @@
 require("lualine").setup({
+  extensions = { "fugitive", "lazy", "trouble", "neo-tree", "mason" },
   options = {
-    theme = "auto",
+    theme = "iceberg_dark",
     icons_enabled = true,
-    disabled_filetypes = { "packer", "Trouble", "dashboard", "neo-tree" },
   },
 })
