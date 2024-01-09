@@ -30,6 +30,9 @@ require("telescope").setup({
   },
 })
 
+-- Extensions
+require("telescope").load_extension('harpoon')
+
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader><leader>", function() telescope.find_files() end, { desc = "Find file" })
 vim.keymap.set("n", "<leader>fg", function() telescope.live_grep() end, { desc = "Grep in files" })
