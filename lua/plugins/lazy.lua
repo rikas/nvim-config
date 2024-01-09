@@ -17,6 +17,7 @@ require("lazy").setup({
     { "lewis6991/gitsigns.nvim" },
     { "windwp/nvim-ts-autotag" },
     { "fladson/vim-kitty" },
+    { "akinsho/bufferline.nvim" },
     { "ThePrimeagen/harpoon",      branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
 
     { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
@@ -129,11 +130,44 @@ require("lazy").setup({
         vim.o.timeoutlen = 500
       end,
       opts = {}
+    },
+
+    { -- package.json goodies
+      "vuki656/package-info.nvim",
+      requires = "MunifTanjim/nui.nvim",
+      config = function()
+        require("package-info").setup()
+      end
+    },
+
+    { -- Rails development goodies
+      "tpope/vim-bundler",
+      "tpope/vim-rails",
+      "tpope/vim-rake",
     }
+
   },
   {
     ui = {
       -- Accepts same border values as |nvim_open_win|
       border = "single"
-    }
+    },
+    install = {
+      missing = true,
+      colorscheme = { "catppuccin" }
+    },
+    performance = {
+      rtp = {
+        disabled_plugins = {
+          "gzip",
+          "matchit",
+          "matchparen",
+          "netrwPlugin",
+          "tarPlugin",
+          "tohtml",
+          "tutor",
+          "zipPlugin",
+        },
+      },
+    },
   })

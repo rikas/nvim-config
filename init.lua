@@ -15,7 +15,7 @@ require("rikas.misc")
 
 -- Specific configs for plugins
 require("plugins.indent-blankline")
-require("plugins.incline")
+-- require("plugins.incline") -- trying out bufferline so this is disabled
 require("plugins.lsp-zero")
 require("plugins.lualine")
 require("plugins.mini-nvim")
@@ -26,9 +26,8 @@ require("plugins.telescope")
 require("plugins.harpoon")
 require("plugins.gitsigns")
 require("plugins.copilot")
+require("plugins.package-info")
+require("plugins.bufferline")
 
 -- Autocomplete setup
 require("rikas.cmp")
-
--- Load some highlights
-require("rikas.highlights")

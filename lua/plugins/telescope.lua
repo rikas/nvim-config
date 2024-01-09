@@ -28,10 +28,16 @@ require("telescope").setup({
       previewer = true,
     },
   },
+  extensions = {
+    package_info = {
+      theme = "cursor"
+    }
+  }
 })
 
 -- Extensions
-require("telescope").load_extension('harpoon')
+require("telescope").load_extension("harpoon")
+require("telescope").load_extension("package_info")
 
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader><leader>", function() telescope.find_files() end, { desc = "Find file" })
