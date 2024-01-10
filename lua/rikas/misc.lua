@@ -1,3 +1,6 @@
+-- Disable having a new line as comment if coming from a comment line
+vim.cmd([[autocmd FileType * set formatoptions-=cro]])
+
 -- Enable highlight when yanking
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
