@@ -8,14 +8,12 @@ vim.opt.relativenumber = true
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2   -- Size of an indent
-vim.opt.showmode = false -- Do not show mode in the command line since we have lualine
-vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.list = true      -- Show some invisible characters (tabs, etc)
-
-vim.opt.smartindent = true
-
-vim.opt.wrap = false
+vim.opt.shiftwidth = 2      -- Size of an indent
+vim.opt.showmode = false    -- Do not show mode in the command line since we have lualine
+vim.opt.expandtab = true    -- Use spaces instead of tabs
+vim.opt.list = true         -- Show some invisible characters (tabs, etc)
+vim.opt.smartindent = false -- neovim smar indentation
+vim.opt.wrap = false        -- do not wrap long lines
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -32,10 +30,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 -- If this many ms nothing is typed the swap file will be written to disk
-vim.opt.updatetime = 50
-
--- Prevent neovim commenting out next line after a comment line
-vim.opt.formatoptions:remove({ "r", "o" })
+vim.opt.updatetime = 250
 
 -- Colorscheme
 vim.cmd.colorscheme "catppuccin"
