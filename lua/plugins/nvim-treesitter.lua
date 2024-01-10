@@ -5,6 +5,7 @@ require("nvim-treesitter.configs").setup({
     "vimdoc", "jsonc", "diff", "javascript", "tsx"
   },
   auto_install = true,
+  autotag = { enable = true },
   highlight = { enable = true },
   indent = { enable = true },
   incremental_selection = {
