@@ -34,6 +34,3 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Replace the highlighted word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Delete the next word when doing ctrl + backspace (like fn + backspace but crl is easier to reach)
-vim.keymap.set("i", "<C-Backspace>", "<esc>dli")
