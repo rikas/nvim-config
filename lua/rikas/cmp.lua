@@ -13,7 +13,6 @@ vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { link = 'CmpItemKindFunction' })
 vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg = 'NONE', fg = '#D4D4D4' })
 vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -27,8 +26,9 @@ cmp.setup({
       col_offset = 1,
     },
   },
+
   mapping = cmp.mapping.preset.insert {
-    ["<C-Esc>"] = cmp.mapping.abort(),
+    ["<C-Esc>"] = cmp.mapping.close(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
