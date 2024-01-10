@@ -13,14 +13,24 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { "tpope/vim-sensible" },
-    { "tpope/vim-fugitive" },
+    { "tpope/vim-fugitive" }, -- git integration
+    { "tpope/vim-repeat" },   -- make the . work a little bit better
+    { "tpope/vim-surround" }, -- add/remove things surrounding text
     { "lewis6991/gitsigns.nvim" },
     { "windwp/nvim-ts-autotag" },
     { "fladson/vim-kitty" },
-    { "akinsho/bufferline.nvim" },
-    { "ThePrimeagen/harpoon",      branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
+    { "akinsho/bufferline.nvim" }, -- show buffers on top
 
-    { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
+    {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" }
+    },
+
+    { -- LSP config
+      "VonHeikemen/lsp-zero.nvim",
+      branch = "v3.x"
+    },
 
     { -- LSP Configuration & Plugins
       "neovim/nvim-lspconfig",
@@ -32,6 +42,13 @@ require("lazy").setup({
         -- Useful status updates for LSP
         "j-hui/fidget.nvim",
       }
+    },
+
+    { -- Notifications on the bottom right
+      "j-hui/fidget.nvim",
+      opts = {
+        -- options
+      },
     },
 
     { -- Copilot
@@ -77,14 +94,15 @@ require("lazy").setup({
     { -- A set of small packages with common features
       "echasnovski/mini.nvim",
       config = function()
-        require('mini.comment').setup()
-        require('mini.bufremove').setup()
-        require('mini.cursorword').setup({
+        require("mini.comment").setup()
+        require("mini.bufremove").setup()
+        require("mini.cursorword").setup({
           delay = 150
         })
-        require('mini.pairs').setup()
-        require('mini.surround').setup()
-        require('mini.trailspace').setup()
+        require("mini.pairs").setup()
+        -- require("mini.surround").setup() -- I'm using tpope/vim-surround
+        require("mini.trailspace").setup()
+        require("mini.splitjoin").setup()
       end
     },
 
@@ -103,16 +121,18 @@ require("lazy").setup({
     { 'nvim-telescope/telescope-symbols.nvim' },
 
     -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
+      cond = vim.fn.executable 'make' == 1
+    },
 
     { -- Highlight, edit, and navigate code
       'nvim-treesitter/nvim-treesitter',
       build = function()
         pcall(require('nvim-treesitter.install').update { with_sync = true })
       end,
-      dependencies = {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-      }
+      dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects', }
     },
 
     { -- Smarter comments using treesitter
@@ -134,6 +154,7 @@ require("lazy").setup({
 
     { -- package.json goodies
       "vuki656/package-info.nvim",
+      lazy = true,
       requires = "MunifTanjim/nui.nvim",
       config = function()
         require("package-info").setup()
@@ -144,9 +165,14 @@ require("lazy").setup({
       "tpope/vim-bundler",
       "tpope/vim-rails",
       "tpope/vim-rake",
-    }
-
+    },
   },
+
+  {
+    "gbprod/yanky.nvim",
+    opts = {},
+  },
+
   {
     ui = {
       -- Accepts same border values as |nvim_open_win|
