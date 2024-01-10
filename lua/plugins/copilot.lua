@@ -10,6 +10,9 @@ require("copilot").setup({
   },
 })
 
+-- Add a slightly different highlight for copilot suggestions
+vim.api.nvim_set_hl(0, 'CopilotSuggestion', { fg = "#7e858c" })
+
 -- hide copilot suggestions when cmp menu is open
 -- to prevent odd behavior/garbled up suggestions
 local cmp_status_ok, cmp = pcall(require, "cmp")
