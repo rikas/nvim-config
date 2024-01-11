@@ -38,6 +38,12 @@ vim.cmd.colorscheme "catppuccin"
 -- Ignore these files when expanding wildcards
 vim.opt.wildignore:append { "node_modules/**", "dist/**", "build/**" }
 
+-- Add a color column at the 100th column
+vim.opt.colorcolumn = { 100 }
+
+-- Change the color of the color column
+vim.cmd([[highlight ColorColumn ctermbg=0 guibg=#25253b]])
+
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])

@@ -1,4 +1,11 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Map ctrl + hjkl to work as arrows in "i" and "c" modes
+vim.keymap.set({ "i", "c" }, "<C-h>", "<Left>")
+vim.keymap.set({ "i", "c" }, "<C-j>", "<Down>")
+vim.keymap.set({ "i", "c" }, "<C-k>", "<Up>")
+vim.keymap.set({ "i", "c" }, "<C-l>", "<Right>")
 
 -- Move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -23,9 +30,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
-
--- conflicts with telescope bindings (and I don't think it's useful since we have auto format on save)
--- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")

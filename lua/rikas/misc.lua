@@ -2,16 +2,16 @@
 vim.cmd([[autocmd FileType * set formatoptions-=cro]])
 
 -- Enable highlight when yanking
-local function augroup(name)
-  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
-end
+-- local function augroup(name)
+--   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+-- end
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+-- group = augroup("highlight_yank"),
+-- callback = function()
+-- vim.highlight.on_yank()
+-- end,
+-- })
 
 -- Disable some builtin vim plugins
 local disabled_built_ins = {

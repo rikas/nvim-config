@@ -12,7 +12,6 @@ require('bufferline').setup({
       return " " .. icon .. count
     end,
     modified_icon = '●',
-
     close_icon = '',
     left_trunc_marker = '',
     right_trunc_marker = '',
@@ -34,3 +33,19 @@ require('bufferline').setup({
 vim.api.nvim_set_hl(0, 'BufferLineIndicatorSelected', { bg = 'NONE', fg = '#bbbbee' })
 vim.api.nvim_set_hl(0, 'BufferLineBufferSelected',
   { bg = 'NONE', fg = '#e4e4ff', bold = false, italic = false, cterm = {} })
+
+-- Keymaps
+vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr> ", { desc = "Delete other buffers" })
+vim.keymap.set("n", "<leader>bd", "<cmd>BufferLineCloseRight<cr>", { desc = "Delete buffer right" })
+vim.keymap.set("n", "<leader>be", "<cmd>BufferLineCloseLeft<cr>", { desc = "Delete buffer left" })
+vim.keymap.set("n", "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer right" })
+vim.keymap.set("n", "<leader>bh", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer left" })
+vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
+
+-- Delete buffer by moving to the next buffer first and then deleting the buffer
+vim.keymap.set("n", "<leader>bq", function()
+    vim.cmd("BufferLineCycleNext")
+    vim.cmd(":bd#")
+  end,
+  { desc = "Delete buffer" })

@@ -28,6 +28,7 @@ require("plugins.gitsigns")
 require("plugins.copilot")
 require("plugins.package-info")
 require("plugins.bufferline")
+require("plugins.yanky")
 
 -- Autocomplete setup
 require("rikas.cmp")

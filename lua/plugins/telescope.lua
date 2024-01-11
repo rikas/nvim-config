@@ -1,4 +1,14 @@
+local actions = require("telescope.actions")
+
 require("telescope").setup({
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      }
+    }
+  },
+
   pickers = {
     find_files = {
       previewer = true,
@@ -38,6 +48,7 @@ require("telescope").setup({
 -- Extensions
 require("telescope").load_extension("harpoon")
 require("telescope").load_extension("package_info")
+require("telescope").load_extension("fzf")
 
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader><leader>", function() telescope.find_files() end, { desc = "Find file" })
@@ -47,3 +58,5 @@ vim.keymap.set("n", "<leader>fh", function() telescope.help_tags() end, { desc =
 vim.keymap.set("n", "<leader>fr", function() telescope.oldfiles() end, { desc = "Find recent files" })
 vim.keymap.set("n", "<leader>fs", function() telescope.lsp_document_symbols() end, { desc = "Find symbols" })
 vim.keymap.set("n", "<leader>fw", function() telescope.grep_string() end, { desc = "Find word under cursor" })
+
+vim.keymap.set("n", "<D-p>", function() telescope.find_files() end, { desc = "Find file" })
