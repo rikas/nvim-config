@@ -12,6 +12,33 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    install = {
+      missing = true,
+      colorscheme = { "catppuccin" }
+    },
+    defaults = {
+      version = false -- always use the latest release
+    },
+    checker = {       -- Automatically check for plugin updates
+      enabled = true
+    },
+    performance = {
+      rtp = {
+        disabled_plugins = {
+          "gzip",
+          "matchit",
+          "matchparen",
+          "netrwPlugin",
+          "tarPlugin",
+          "tohtml",
+          "tutor",
+          "zipPlugin",
+        },
+      },
+    },
+    -- Add sqlite support for packages that need it
+    { "kkharji/sqlite.lua",     enabled = not jit.os:find("Windows") },
+
     { "tpope/vim-sensible" },
     { "tpope/vim-fugitive" }, -- git integration
     { "tpope/vim-repeat" },   -- make the . work a little bit better
@@ -166,34 +193,15 @@ require("lazy").setup({
       "tpope/vim-rails",
       "tpope/vim-rake",
     },
-  },
 
-  {
-    "gbprod/yanky.nvim",
-    opts = {},
+    { -- Better yank
+      "gbprod/yanky.nvim",
+    },
   },
 
   {
     ui = {
       -- Accepts same border values as |nvim_open_win|
       border = "single"
-    },
-    install = {
-      missing = true,
-      colorscheme = { "catppuccin" }
-    },
-    performance = {
-      rtp = {
-        disabled_plugins = {
-          "gzip",
-          "matchit",
-          "matchparen",
-          "netrwPlugin",
-          "tarPlugin",
-          "tohtml",
-          "tutor",
-          "zipPlugin",
-        },
-      },
     },
   })
