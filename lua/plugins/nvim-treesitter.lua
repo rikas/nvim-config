@@ -2,13 +2,19 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "ruby", "lua", "typescript", "sql", "json", "regex", "bash",
     "markdown", "luadoc", "toml", "yaml", "vim", "css", "html",
-    "vimdoc", "jsonc", "diff", "javascript", "tsx"
+    "vimdoc", "jsonc", "diff", "javascript", "tsx", "toml"
   },
   auto_install = true,
   autotag = { enable = true },
   autopairs = { enable = true },
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
   indent = { enable = true },
+  matchup = { enable = true },
+  -- JoosepAlviste/nvim-ts-context-commentstring
+  context_commentstring = { enable = true, enable_autocmd = false },
   incremental_selection = {
     enable = true,
     keymaps = {

@@ -54,14 +54,31 @@ require("lazy").setup({
       dependencies = { "nvim-lua/plenary.nvim" }
     },
 
+    { -- Smarter '%'
+      "andymass/vim-matchup",
+      setup = function()
+        vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      end,
+    },
+
     { -- LSP config
       "VonHeikemen/lsp-zero.nvim",
-      branch = "v3.x"
+      branch = "v3.x",
+      lazy = true
     },
 
     { -- LSP Configuration & Plugins
       "neovim/nvim-lspconfig",
+      event = { "BufReadPost", "BufNewFile", "BufWritePre" },
       dependencies = {
+        -- Formatter
+        -- "stevearc/conform.nvim",
+        -- Linter
+        -- "mfussenegger/nvim-lint",
+
+        -- Plugin for function signature help
+        -- "ray-x/lsp_signature.nvim",
+
         -- Automatically install LSPs to stdpath for neovim
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -69,6 +86,11 @@ require("lazy").setup({
         -- Useful status updates for LSP
         "j-hui/fidget.nvim",
       }
+    },
+
+    { -- Autocompletion
+      "hrsh7th/nvim-cmp",
+      dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
     },
 
     { -- Notifications on the bottom right
@@ -85,10 +107,6 @@ require("lazy").setup({
       event = "InsertEnter",
     },
 
-    { -- Autocompletion
-      "hrsh7th/nvim-cmp",
-      dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
-    },
 
     { --VSCode style icons to use in cmp menu
       "onsails/lspkind.nvim"
@@ -183,9 +201,9 @@ require("lazy").setup({
       "vuki656/package-info.nvim",
       lazy = true,
       requires = "MunifTanjim/nui.nvim",
-      config = function()
-        require("package-info").setup()
-      end
+      -- config = function()
+      --   require("package-info").setup()
+      -- end
     },
 
     { -- Rails development goodies

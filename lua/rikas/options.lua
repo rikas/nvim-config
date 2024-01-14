@@ -32,6 +32,10 @@ vim.opt.isfname:append("@-@")
 -- If this many ms nothing is typed the swap file will be written to disk
 vim.opt.updatetime = 250
 
+-- How much time neovim will wait for a mapped sequence to complete
+vim.opt.timeoutlen = 250
+
+
 -- Colorscheme
 vim.cmd.colorscheme "catppuccin"
 

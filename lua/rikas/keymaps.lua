@@ -1,12 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Map ctrl + hjkl to work as arrows in "i" and "c" modes
-vim.keymap.set({ "i", "c" }, "<C-h>", "<Left>")
-vim.keymap.set({ "i", "c" }, "<C-j>", "<Down>")
-vim.keymap.set({ "i", "c" }, "<C-k>", "<Up>")
-vim.keymap.set({ "i", "c" }, "<C-l>", "<Right>")
-
 -- Move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

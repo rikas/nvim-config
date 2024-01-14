@@ -1,4 +1,5 @@
 -- Load my personal keymaps
+
 require("rikas.keymaps")
 
 -- Load lazy packages
