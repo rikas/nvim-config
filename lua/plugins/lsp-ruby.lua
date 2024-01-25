@@ -44,4 +44,3 @@ function LSPRuby_setup_diagnostics(client, buffer)
     end,
   })
 end
-

@@ -35,5 +35,5 @@ require("catppuccin").setup({
     telescope = {
       enabled = true,
     },
-  }
+  },
 })

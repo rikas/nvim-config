@@ -9,8 +9,8 @@ require("neo-tree").setup({
         -- open with l key
         ["l"] = "open",
         -- space is my leader
-        ["<space>"] = "none"
-      }
+        ["<space>"] = "none",
+      },
     },
   },
   git_status = {
@@ -19,9 +19,9 @@ require("neo-tree").setup({
         -- open with l key
         ["l"] = "open",
         -- space is my leader
-        ["<space>"] = "none"
-      }
-    }
+        ["<space>"] = "none",
+      },
+    },
   },
   default_component_configs = {
     indent = {
@@ -32,17 +32,17 @@ require("neo-tree").setup({
       git_status = {
         symbols = {
           -- Change type
-          added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-          modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-          deleted   = "✖", -- this can only be used in the git_status source
-          renamed   = "󰁕", -- this can only be used in the git_status source
+          added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+          modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+          deleted = "✖", -- this can only be used in the git_status source
+          renamed = "󰁕", -- this can only be used in the git_status source
           -- Status type
           untracked = "",
-          ignored   = "",
-          unstaged  = "󰄱",
-          staged    = "",
-          conflict  = "",
-        }
+          ignored = "",
+          unstaged = "󰄱",
+          staged = "",
+          conflict = "",
+        },
       },
     },
   },
@@ -68,35 +68,27 @@ require("neo-tree").setup({
         -- open with l key
         ["l"] = "open",
         -- space is my leader
-        ["<space>"] = "none"
-      }
+        ["<space>"] = "none",
+      },
     },
   },
 })
 
-vim.keymap.set("n", "<D-b>",
-  function()
-    require("neo-tree.command").execute({ toggle = true })
-  end,
-  { desc = "Toggle file explorer (NeoTree)" })
+vim.keymap.set("n", "<D-b>", function()
+  require("neo-tree.command").execute({ toggle = true })
+end, { desc = "Toggle file explorer (NeoTree)" })
 
 -- Toggle neo tree
-vim.keymap.set("n", "<leader>ee",
-  function()
-    require("neo-tree.command").execute({ toggle = true })
-  end,
-  { desc = "Toggle file explorer (NeoTree)" })
+vim.keymap.set("n", "<leader>ee", function()
+  require("neo-tree.command").execute({ toggle = true })
+end, { desc = "Toggle file explorer (NeoTree)" })
 
 -- Show only open buffers
-vim.keymap.set("n", "<leader>eb",
-  function()
-    require("neo-tree.command").execute({ source = "buffers", toggle = true })
-  end,
-  { desc = "Toggle open buffers (NeoTree)" })
+vim.keymap.set("n", "<leader>eb", function()
+  require("neo-tree.command").execute({ source = "buffers", toggle = true })
+end, { desc = "Toggle open buffers (NeoTree)" })
 
 -- Show git status
-vim.keymap.set("n", "<leader>eg",
-  function()
-    require("neo-tree.command").execute({ source = "git_status", toggle = true })
-  end,
-  { desc = "Toggle git status (NeoTree)" })
+vim.keymap.set("n", "<leader>eg", function()
+  require("neo-tree.command").execute({ source = "git_status", toggle = true })
+end, { desc = "Toggle git status (NeoTree)" })

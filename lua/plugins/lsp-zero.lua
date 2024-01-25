@@ -1,11 +1,20 @@
-local lsp_zero = require('lsp-zero')
+local lsp_zero = require("lsp-zero")
 lsp_zero.extend_lspconfig()
 
 -- Diganostics are not exclusive to LSP servers so these can be flobal keybings
-vim.keymap.set("n", "<leader>cd", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Open diagnostics" })
+vim.keymap.set(
+  "n",
+  "<leader>cd",
+  "<cmd>lua vim.diagnostic.open_float()<cr>",
+  { desc = "Open diagnostics" }
+)
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next diagnostic" })
-vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Previous diagnostic" })
-
+vim.keymap.set(
+  "n",
+  "]d",
+  "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+  { desc = "Previous diagnostic" }
+)
 
 lsp_zero.on_attach(function(_, bufnr)
   -- see :help lsp-zero-keybindings to learn the available actions
@@ -24,45 +33,78 @@ lsp_zero.on_attach(function(_, bufnr)
   -- ]d: Move to the next diagnostic.
   lsp_zero.default_keymaps({ buffer = bufnr })
 
-  vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end,
-    { buffer = bufnr, remap = false, desc = "Go to declaration" })
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
-    { buffer = bufnr, remap = false, desc = "Go to definition" })
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end,
-    { buffer = bufnr, remap = false, desc = "Information about symbol" })
-  vim.keymap.set("n", "<C-K>", function() vim.lsp.buf.signature_help() end,
-    { buffer = bufnr, remap = false, desc = "Function signature help" })
-  vim.keymap.set("n", "<leader>cs", function() vim.lsp.buf.implementation() end,
-    { buffer = bufnr, remap = false, desc = "Go to implementation" })
-  vim.keymap.set("n", "<leader>cs", function() vim.lsp.buf.workspace_symbol() end,
-    { buffer = bufnr, remap = false, desc = "Search in workspace" })
-  vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end,
-    { buffer = bufnr, remap = false, desc = "Code action" })
-  vim.keymap.set("n", "<leader>cr", function() vim.lsp.buf.references() end,
-    { buffer = bufnr, remap = false, desc = "Code references" })
-  vim.keymap.set("n", "<leader>cn", function() vim.lsp.buf.rename() end,
-    { buffer = bufnr, remap = false, desc = "Rename" })
+  vim.keymap.set("n", "gD", function()
+    vim.lsp.buf.declaration()
+  end, { buffer = bufnr, remap = false, desc = "Go to declaration" })
+  vim.keymap.set("n", "gd", function()
+    vim.lsp.buf.definition()
+  end, { buffer = bufnr, remap = false, desc = "Go to definition" })
+  vim.keymap.set("n", "K", function()
+    vim.lsp.buf.hover()
+  end, { buffer = bufnr, remap = false, desc = "Information about symbol" })
+  vim.keymap.set("n", "<C-K>", function()
+    vim.lsp.buf.signature_help()
+  end, { buffer = bufnr, remap = false, desc = "Function signature help" })
+  vim.keymap.set("n", "<leader>cs", function()
+    vim.lsp.buf.implementation()
+  end, { buffer = bufnr, remap = false, desc = "Go to implementation" })
+  vim.keymap.set("n", "<leader>cs", function()
+    vim.lsp.buf.workspace_symbol()
+  end, { buffer = bufnr, remap = false, desc = "Search in workspace" })
+  vim.keymap.set("n", "<leader>ca", function()
+    vim.lsp.buf.code_action()
+  end, { buffer = bufnr, remap = false, desc = "Code action" })
+  vim.keymap.set("n", "<leader>cr", function()
+    vim.lsp.buf.references()
+  end, { buffer = bufnr, remap = false, desc = "Code references" })
+  vim.keymap.set("n", "<leader>cn", function()
+    vim.lsp.buf.rename()
+  end, { buffer = bufnr, remap = false, desc = "Rename" })
 end)
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = "",
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+require("mason").setup({})
+require("mason-lspconfig").setup({
   ensure_installed = {
-    "tsserver", "lua_ls", "eslint", "ruby_ls"
+    "tsserver",
+    "lua_ls",
+    "eslint",
+    "ruby_ls",
   },
   handlers = {
     lsp_zero.default_setup,
 
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
-      require('lspconfig').lua_ls.setup(lua_opts)
+      require("lspconfig").lua_ls.setup(lua_opts)
     end,
 
     tsserver = function()
-      require('lspconfig').tsserver.setup({})
+      require("lspconfig").tsserver.setup({
+        init_options = {
+          preferences = {
+            disableSuggestions = true,
+          },
+        },
+        commands = {
+          OrganizeImports = {
+            organize_imports,
+            description = "Organize Imports",
+          },
+        },
+      })
     end,
 
     ruby_ls = function()
-      require('lspconfig').ruby_ls.setup({
+      require("lspconfig").ruby_ls.setup({
         -- on_attach = function(client, buffer)
         --   require('lsp-ruby').LSPRuby_setup_diagnosticcs(client, buffer)
         -- end
@@ -72,32 +114,21 @@ require('mason-lspconfig').setup({
     eslint = function()
       require("lspconfig").eslint.setup({
         on_attach = function(_, bufnr)
-          vim.api.nvim_create_autocmd('BufWritePre', {
+          vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
-            command = "EslintFixAll"
+            command = "EslintFixAll",
           })
-        end
+        end,
       })
     end,
-
-    biome = function()
-      require('lspconfig').biome.setup({
-        on_attach = function(_, bufnr)
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            command = "BiomeFormat"
-          })
-        end
-      })
-    end
-  }
+  },
 })
 
 -- Autofomat on save
-vim.api.nvim_create_augroup('AutoFormatting', {})
-vim.api.nvim_create_autocmd('BufWritePre', {
-  group = 'AutoFormatting',
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
+-- vim.api.nvim_create_augroup('AutoFormatting', {})
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   group = 'AutoFormatting',
+--   callback = function()
+--     vim.lsp.buf.format()
+--   end,
+-- })

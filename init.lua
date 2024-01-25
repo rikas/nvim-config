@@ -1,5 +1,4 @@
 -- Load my personal keymaps
-
 require("rikas.keymaps")
 
 -- Load lazy packages
@@ -30,6 +29,7 @@ require("plugins.copilot")
 require("plugins.package-info")
 require("plugins.bufferline")
 require("plugins.yanky")
+require("plugins.conform")
 
 -- Autocomplete setup
 require("rikas.cmp")
