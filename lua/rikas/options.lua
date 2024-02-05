@@ -8,12 +8,12 @@ vim.opt.relativenumber = true
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2 -- Size of an indent
-vim.opt.showmode = false -- Do not show mode in the command line since we have lualine
-vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.list = true -- Show some invisible characters (tabs, etc)
+vim.opt.shiftwidth = 2      -- Size of an indent
+vim.opt.showmode = false    -- Do not show mode in the command line since we have lualine
+vim.opt.expandtab = true    -- Use spaces instead of tabs
+vim.opt.list = true         -- Show some invisible characters (tabs, etc)
 vim.opt.smartindent = false -- neovim smar indentation
-vim.opt.wrap = false -- do not wrap long lines
+vim.opt.wrap = false        -- do not wrap long lines
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -35,17 +35,11 @@ vim.opt.updatetime = 250
 -- How much time neovim will wait for a mapped sequence to complete
 vim.opt.timeoutlen = 250
 
--- Colorscheme
-vim.cmd.colorscheme("catppuccin")
-
 -- Ignore these files when expanding wildcards
 vim.opt.wildignore:append({ "node_modules/**", "dist/**", "build/**" })
 
 -- Add a color column at the 100th column
 vim.opt.colorcolumn = { 100 }
-
--- Change the color of the color column
-vim.cmd([[highlight ColorColumn ctermbg=0 guibg=#25253b]])
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])

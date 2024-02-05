@@ -1,35 +1,54 @@
 -- Load my personal keymaps
 require("rikas.keymaps")
 
--- Load lazy packages
-require("plugins.lazy")
-
--- Colorscheme
-require("plugins.catppuccin")
-
 -- Load my vim options
 require("rikas.options")
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Load lazy and all the plugins in the lua/plugins directory
+require("lazy").setup("plugins", {
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
+  ui = {
+    -- Accepts same border values as |nvim_open_win|
+    border = "single",
+  },
+})
+
+-- Colorscheme
+vim.cmd.colorscheme("catppuccin")
 
 -- Load misc configurations (not related to any particular package)
 require("rikas.misc")
 
--- Specific configs for plugins
-require("plugins.indent-blankline")
--- require("plugins.incline") -- trying out bufferline so this is disabled
-require("plugins.lsp-zero")
-require("plugins.lualine")
-require("plugins.mini-nvim")
-require("plugins.nvim-colorizer")
-require("plugins.nvim-neo-tree")
-require("plugins.nvim-treesitter")
-require("plugins.telescope")
-require("plugins.harpoon")
-require("plugins.gitsigns")
-require("plugins.copilot")
-require("plugins.package-info")
-require("plugins.bufferline")
-require("plugins.yanky")
-require("plugins.conform")
-
 -- Autocomplete setup
 require("rikas.cmp")
+
+-- Custom hilight groups
+require("rikas.highlights")
+
+require("rikas.lsp")

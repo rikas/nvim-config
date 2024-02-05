@@ -1,39 +1,48 @@
-require("catppuccin").setup({
-  term_colors = true,
-  transparent_background = false,
-  flavour = "mocha",
-  styles = {
-    comments = {},
-    conditionals = {},
-    loops = {},
-    functions = {},
-    keywords = {},
-    strings = {},
-    variables = {},
-    numbers = {},
-    booleans = {},
-    properties = {},
-    types = {},
-  },
+return {
+  "catppuccin/nvim",
+  lazy = false,
+  priority = 1000,
+  name = "catppuccin",
 
-  integrations = {
-    indent_blankline = { enabled = true },
-    native_lsp = {
-      enabled = true,
-      underlines = {
-        errors = { "undercurl" },
-        hints = { "undercurl" },
-        warnings = { "undercurl" },
-        information = { "undercurl" },
-      },
+  opts = {
+    term_colors = true,
+    transparent_background = false,
+    flavour = "mocha",
+    styles = {
+      comments = {},
+      conditionals = {},
+      loops = {},
+      functions = {},
+      keywords = {},
+      strings = {},
+      variables = {},
+      numbers = {},
+      booleans = {},
+      properties = {},
+      types = {},
     },
-    neotree = true,
-    which_key = true,
-    mason = true,
-    mini = true,
-    cmp = true,
-    telescope = {
-      enabled = true,
+
+    integrations = {
+      native_lsp = {
+        enabled = true,
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+        },
+      },
+      indent_blankline = true,
+      harpoon = true,
+      gitsigns = true,
+      neotree = true,
+      which_key = true,
+      mason = true,
+      mini = true,
+      cmp = true,
+      telescope = true,
+      treesitter = true,
+      treesitter_context = true,
     },
   },
-})
+}

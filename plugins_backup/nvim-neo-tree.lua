@@ -74,10 +74,6 @@ require("neo-tree").setup({
   },
 })
 
-vim.keymap.set("n", "<D-b>", function()
-  require("neo-tree.command").execute({ toggle = true })
-end, { desc = "Toggle file explorer (NeoTree)" })
-
 -- Toggle neo tree
 vim.keymap.set("n", "<leader>ee", function()
   require("neo-tree.command").execute({ toggle = true })
