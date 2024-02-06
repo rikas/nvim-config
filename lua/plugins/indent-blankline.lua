@@ -3,7 +3,7 @@ return { -- Show indent lines
   main = "ibl",
   opts = {
     -- Indentation guides with the same color as the highlight group `LineNr`
-    indent = { char = "▏", highlight = { "LineNr" } },
+    indent = { char = "▏", highlight = { "IblIndent" } },
 
     -- When in the scope highlight with the same color as the highlight group `@keyword`
     scope = {
@@ -25,5 +25,5 @@ return { -- Show indent lines
         "lazyterm",
       },
     },
-  }
+  },
 }
