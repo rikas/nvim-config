@@ -33,5 +33,16 @@ return { -- A set of small packages with common features
         end,
       },
     })
+
+    require("mini.indentscope").setup({
+      draw = {
+        delay = 0,
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+      options = {
+        indent_at_cursor = true,
+      },
+      symbol = "▏",
+    })
   end,
 }
