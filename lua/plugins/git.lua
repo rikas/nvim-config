@@ -9,7 +9,7 @@ return {
       vim.g.lazygit_floating_window_winblend = 0 -- transparency of floating window
       vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floating window
       vim.g.lazygit_floating_window_border_chars =
-      { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } -- customize lazygit popup window border
+        { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } -- customize lazygit popup window border
       vim.g.lazygit_floating_window_use_plenary = 0 -- use plenary.nvim to manage floating window
       vim.g.lazygit_use_neovim_remote = 1 -- fallback to 0 if neovim-remote is not installed
 
@@ -18,7 +18,7 @@ return {
 
       -- Add a key map to open lazygit
       vim.api.nvim_set_keymap("n", "<leader>lg", ":LazyGit<CR>", { noremap = true, silent = true })
-    end
+    end,
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -32,6 +32,7 @@ return {
         untracked = { text = "▎" },
       },
       current_line_blame = true,
+      current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> • <summary>",
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
@@ -47,11 +48,15 @@ return {
         map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
         map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+        map("n", "<leader>ghb", function()
+          gs.blame_line({ full = true })
+        end, "Blame Line")
         map("n", "<leader>ghd", gs.diffthis, "Diff This")
-        map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+        map("n", "<leader>ghD", function()
+          gs.diffthis("~")
+        end, "Diff This ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
-    }
-  }
+    },
+  },
 }
