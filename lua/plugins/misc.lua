@@ -13,7 +13,4 @@ return {
     },
     config = true,
   },
-  { -- Colorize color strings like "#ff5511" or "blue"
-    "NvChad/nvim-colorizer.lua",
-  },
 }
