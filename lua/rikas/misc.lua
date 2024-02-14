@@ -27,3 +27,14 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
   vim.g["loaded_" .. plugin] = 1
 end
+
+-- Add wrapping and spellcheck when editing markdown, text or git commits
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = vim.api.nvim_create_augroup("edit_text", { clear = true }),
+  pattern = { "gitcommit", "markdown", "txt" },
+  desc = "Enable spell checking and text wrapping for certain filetypes",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
