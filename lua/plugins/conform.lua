@@ -17,6 +17,7 @@ return {
       bash = { "shfmt" },
       sh = { "shfmt" },
       python = { "black" },
+      graphql = { "prettierd" },
     },
 
     format_on_save = {
@@ -24,5 +25,5 @@ return {
       async = false,
       timeout_ms = 1000,
     },
-  }
+  },
 }
