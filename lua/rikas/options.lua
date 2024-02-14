@@ -8,12 +8,12 @@ vim.opt.relativenumber = true
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2      -- Size of an indent
-vim.opt.showmode = false    -- Do not show mode in the command line since we have lualine
-vim.opt.expandtab = true    -- Use spaces instead of tabs
-vim.opt.list = true         -- Show some invisible characters (tabs, etc)
+vim.opt.shiftwidth = 2 -- Size of an indent
+vim.opt.showmode = false -- Do not show mode in the command line since we have lualine
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.list = true -- Show some invisible characters (tabs, etc)
 vim.opt.smartindent = false -- neovim smar indentation
-vim.opt.wrap = false        -- do not wrap long lines
+vim.opt.wrap = false -- do not wrap long lines
 
 vim.opt.swapfile = false
 vim.opt.backup = false
