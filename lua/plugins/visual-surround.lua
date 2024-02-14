@@ -1,3 +1,4 @@
+-- Add surround chars in visual mode by just selecting and then typing the char
 return {
   "NStefan002/visual-surround.nvim",
   opts = {
