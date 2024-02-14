@@ -14,6 +14,7 @@ return { -- A set of small packages with common features
 
   config = function()
     require("mini.bufremove").setup()
+    -- Show matching words like the one under the cursor
     require("mini.cursorword").setup({
       delay = 150,
     })
