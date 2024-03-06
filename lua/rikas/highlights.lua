@@ -14,4 +14,4 @@ vim.cmd("hi! link MiniCursorword Visual")
 vim.cmd("hi! link MiniCursorwordCurrent MiniCursorword")
 
 -- Override the MiniIndentscopeSymbol highlight group
-vim.cmd("hi! link MiniIndentscopeSymbol LineNr")
+vim.cmd("hi! link MiniIndentscopeSymbol @type")
