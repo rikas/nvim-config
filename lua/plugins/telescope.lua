@@ -8,7 +8,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-symbols.nvim"
+      "nvim-telescope/telescope-symbols.nvim",
     },
     config = function()
       require("telescope").setup({
@@ -61,7 +61,6 @@ return {
 
       -- Extensions
       require("telescope").load_extension("harpoon")
-      require("telescope").load_extension("package_info")
       require("telescope").load_extension("fzf")
 
       local telescope = require("telescope.builtin")
