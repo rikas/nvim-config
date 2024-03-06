@@ -6,10 +6,11 @@ return { -- Show indent lines
     indent = { char = "▏", highlight = { "IblIndent" } },
 
     -- When in the scope highlight with the same color as the highlight group `@keyword`
-    scope = {
-      highlight = { "CursorLineNr" },
-      exclude = { language = { "json", "jsonc" } },
-    },
+    -- scope = {
+    --   highlight = { "CursorLineNr" },
+    --   exclude = { language = { "json", "jsonc" } },
+    -- },
+    scope = { enabled = false },
     exclude = {
       filetypes = {
         "help",
