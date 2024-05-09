@@ -1,6 +1,6 @@
 return {
   { -- Use treesitter to autoclose and autorename html tag
-    "windwp/nvim-ts-autotag"
+    "windwp/nvim-ts-autotag",
   },
 
   { -- Smarter comments using treesitter
@@ -14,7 +14,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects"
+      "nvim-treesitter/nvim-treesitter-context",
+      "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -114,8 +115,6 @@ return {
           },
         },
       })
-    end
+    end,
   },
-
-
 }

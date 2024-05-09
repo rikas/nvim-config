@@ -65,6 +65,7 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "luasnip", keyword_length = 2 },
     { name = "buffer", keyword_length = 3 },
+    { name = "path" },
   },
   experimental = {
     ghost_text = true, -- we need this for copilot to work properly!

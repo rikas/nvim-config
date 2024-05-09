@@ -5,7 +5,7 @@ return {
       "tsserver",
       "lua_ls",
       "eslint",
-      "ruby_ls",
+      "ruby_lsp",
     },
     ui = {
       border = "single",

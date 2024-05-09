@@ -3,18 +3,17 @@ return {
   cmd = "Copilot",
   build = ":Copilot auth",
   event = "InsertEnter",
-
-   opts = {
-      panel = {
-        enabled = false,
-        auto_refresh = true,
-      },
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        accept = false, -- disable built-in keymapping
-      },
+  opts = {
+    panel = {
+      enabled = false,
+      auto_refresh = true,
     },
+    suggestion = {
+      enabled = true,
+      auto_trigger = true,
+      accept = false, -- disable built-in keymapping
+    },
+  },
   init = function()
     -- Add a slightly different highlight for copilot suggestions
     vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#7e858c" })
@@ -30,5 +29,5 @@ return {
         vim.b.copilot_suggestion_hidden = false
       end)
     end
-  end
+  end,
 }

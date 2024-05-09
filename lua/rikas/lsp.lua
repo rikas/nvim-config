@@ -85,7 +85,7 @@ require("mason-lspconfig").setup({
     "tsserver",
     "lua_ls",
     "eslint",
-    "ruby_ls",
+    "ruby_lsp",
   },
   handlers = {
     lsp_zero.default_setup,

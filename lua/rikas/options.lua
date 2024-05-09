@@ -41,6 +41,10 @@ vim.opt.wildignore:append({ "node_modules/**", "dist/**", "build/**" })
 -- Add a color column at the 100th column
 vim.opt.colorcolumn = { 100 }
 
+-- Use ripgrep instead of grep for faster grepping
+vim.opt.grepprg = "rg --vimgrep"
+vim.opt.grepformat = "%f:%l:%c:%m"
+
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])

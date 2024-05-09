@@ -1,5 +1,7 @@
 return {
-  { "tpope/vim-fugitive" },
+  {
+    "tpope/vim-fugitive",
+  },
   {
     "kdheepak/lazygit.nvim",
     dependencies = {

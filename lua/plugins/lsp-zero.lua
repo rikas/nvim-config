@@ -7,7 +7,8 @@ return {
     local lsp_zero = require("lsp-zero")
 
     lsp_zero.extend_lspconfig()
-    -- Diganostics are not exclusive to LSP servers so these can be global keybings
+
+    -- Diagnostics are not exclusive to LSP servers so these can be global keybings
     vim.keymap.set(
       "n",
       "<leader>cd",
@@ -46,27 +47,35 @@ return {
       vim.keymap.set("n", "gD", function()
         vim.lsp.buf.declaration()
       end, { buffer = bufnr, remap = false, desc = "Go to declaration" })
+
       vim.keymap.set("n", "gd", function()
         vim.lsp.buf.definition()
       end, { buffer = bufnr, remap = false, desc = "Go to definition" })
+
       vim.keymap.set("n", "K", function()
         vim.lsp.buf.hover()
       end, { buffer = bufnr, remap = false, desc = "Information about symbol" })
+
       vim.keymap.set("n", "<C-K>", function()
         vim.lsp.buf.signature_help()
       end, { buffer = bufnr, remap = false, desc = "Function signature help" })
+
       vim.keymap.set("n", "<leader>cs", function()
         vim.lsp.buf.implementation()
       end, { buffer = bufnr, remap = false, desc = "Go to implementation" })
+
       vim.keymap.set("n", "<leader>cs", function()
         vim.lsp.buf.workspace_symbol()
       end, { buffer = bufnr, remap = false, desc = "Search in workspace" })
+
       vim.keymap.set("n", "<leader>ca", function()
         vim.lsp.buf.code_action()
       end, { buffer = bufnr, remap = false, desc = "Code action" })
+
       vim.keymap.set("n", "<leader>cr", function()
         vim.lsp.buf.references()
       end, { buffer = bufnr, remap = false, desc = "Code references" })
+
       vim.keymap.set("n", "<leader>cn", function()
         vim.lsp.buf.rename()
       end, { buffer = bufnr, remap = false, desc = "Rename" })

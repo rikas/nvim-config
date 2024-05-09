@@ -18,8 +18,11 @@ return {
               ["<esc>"] = require("telescope.actions").close,
             },
           },
+          cache_picker = {
+            num_pickers = 100,
+            ignore_empty_prompt = true,
+          },
         },
-
         pickers = {
           find_files = {
             previewer = true,

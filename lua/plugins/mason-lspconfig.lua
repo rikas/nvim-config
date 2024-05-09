@@ -5,7 +5,7 @@ return {
       "tsserver",
       "lua_ls",
       "eslint",
-      "ruby_ls",
+      "ruby_lsp",
     },
     handlers = {
       require("lsp-zero").default_setup,
@@ -15,5 +15,5 @@ return {
         require("lspconfig").lua_ls.setup(lua_opts)
       end,
     },
-  }
+  },
 }
