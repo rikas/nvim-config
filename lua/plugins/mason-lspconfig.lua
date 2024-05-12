@@ -6,6 +6,8 @@ return {
       "lua_ls",
       "eslint",
       "ruby_lsp",
+      "prettierd",
+      "rubocop",
     },
     handlers = {
       require("lsp-zero").default_setup,
