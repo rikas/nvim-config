@@ -19,7 +19,7 @@ return {
       vim.g.lazygit_config_file_path = {} -- table of custom config file paths
 
       -- Add a key map to open lazygit
-      vim.api.nvim_set_keymap("n", "<leader>lg", ":LazyGit<CR>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>ghl", ":LazyGit<CR>", { noremap = true, silent = true })
     end,
   },
   {
@@ -34,7 +34,7 @@ return {
         untracked = { text = "▎" },
       },
       current_line_blame = true,
-      current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> • <summary>",
+      current_line_blame_formatter = " <author>, <author_time:%Y-%m-%d> • <summary>",
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
