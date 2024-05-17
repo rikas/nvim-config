@@ -3,10 +3,10 @@ return {
   opts = {
     event = { "BufReadPre", "BufNewFile" },
     formatters_by_ft = {
-      javascript = { "prettierd" },
-      typescript = { "prettierd" },
-      typescriptreact = { "prettierd" },
-      javascriptreact = { "prettierd" },
+      javascript = { { "prettierd", "biome" } },
+      typescript = { { "prettierd", "biome" } },
+      typescriptreact = { { "prettierd", "biome" } },
+      javascriptreact = { { "prettierd", "biome" } },
       json = { "prettierd" },
       html = { "prettierd" },
       css = { "prettierd" },
