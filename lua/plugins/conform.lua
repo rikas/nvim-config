@@ -18,6 +18,7 @@ return {
       sh = { "shfmt" },
       python = { "black" },
       graphql = { "prettierd" },
+      eruby = { "erb_format" },
     },
 
     formatters = {
