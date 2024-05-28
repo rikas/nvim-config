@@ -8,6 +8,7 @@ return { -- Colorize color strings like "#ff5511" or "blue"
       "javascriptreact",
       "typescript",
       "typescriptreact",
+      scss = { mode = "virtualtext" },
       css = { mode = "virtualtext" },
     },
     user_default_options = {
