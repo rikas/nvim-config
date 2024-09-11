@@ -11,11 +11,13 @@ return {
       "nvim-telescope/telescope-symbols.nvim",
     },
     config = function()
+      local actions = require("telescope.actions")
       require("telescope").setup({
         defaults = {
           mappings = {
             i = {
-              ["<esc>"] = require("telescope.actions").close,
+              ["<esc>"] = actions.close,
+              ["C-q"] = actions.smart_send_to_qflist + actions.open_qflist,
             },
           },
           cache_picker = {
