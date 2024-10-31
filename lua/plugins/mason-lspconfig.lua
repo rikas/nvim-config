@@ -2,7 +2,7 @@ return {
   "williamboman/mason-lspconfig.nvim",
   opts = {
     ensure_installed = {
-      "tsserver",
+      "ts_ls",
       "lua_ls",
       "eslint",
       "ruby_lsp",
