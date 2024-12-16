@@ -20,7 +20,8 @@ vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
 cmp.setup({
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      vim.snippet.expand(args.body)
+      -- luasnip.lsp_expand(args.body)
     end,
   },
   window = {

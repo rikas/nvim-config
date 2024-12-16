@@ -9,13 +9,13 @@ return {
       "prettierd",
       "rubocop",
     },
-    handlers = {
-      require("lsp-zero").default_setup,
+    -- handlers = {
+    -- require("lsp-zero").default_setup,
 
-      lua_ls = function()
-        local lua_opts = require("lsp-zero").nvim_lua_ls()
-        require("lspconfig").lua_ls.setup(lua_opts)
-      end,
-    },
+    -- lua_ls = function()
+    -- local lua_opts = require("lsp-zero").nvim_lua_ls()
+    -- require("lspconfig").lua_ls.setup(lua_opts)
+    -- end,
+    -- },
   },
 }
