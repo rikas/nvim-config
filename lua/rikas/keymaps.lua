@@ -28,6 +28,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- Q should do nothing!
 vim.keymap.set("n", "Q", "<nop>")
 
+-- Quickfix and location list navigation
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
