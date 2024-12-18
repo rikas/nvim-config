@@ -2,7 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
-    extensions = { "fugitive", "lazy", "trouble", "neo-tree", "mason" },
+    extensions = { "fugitive", "lazy", "trouble", "neo-tree", "mason", "quickfix" },
     options = {
       theme = "auto",
       icons_enabled = true,
