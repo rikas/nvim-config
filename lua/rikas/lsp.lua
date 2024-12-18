@@ -1,3 +1,11 @@
+-- This should be executed before you configure any language server
+local lspconfig_defaults = require("lspconfig").util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+  "force",
+  lspconfig_defaults.capabilities,
+  require("cmp_nvim_lsp").default_capabilities()
+)
+
 require("mason").setup({})
 require("mason-lspconfig").setup({
   ensure_installed = {
@@ -76,15 +84,6 @@ require("mason-lspconfig").setup({
 
 vim.opt.signcolumn = "yes"
 
--- Add cmp_vim_lsp capabilities settings to lspconfig
--- This should be executed before you configure any language server
-local lspconfig_defaults = require("lspconfig").util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-  "force",
-  lspconfig_defaults.capabilities,
-  require("cmp_nvim_lsp").default_capabilities()
-)
-
 -- This is where you enable features that only work if there is a language server active in the
 -- file
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -98,7 +97,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
     vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
     vim.keymap.set("n", "<leader>cr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-    vim.keymap.set("n", "<C-K>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+    vim.keymap.set("i", "<C-K>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
     vim.keymap.set("n", "<leader>cn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
     vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
     vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
