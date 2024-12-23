@@ -52,3 +52,4 @@ require("rikas.cmp")
 require("rikas.highlights")
 
 require("rikas.lsp")
+require("rikas.floaterminal")
