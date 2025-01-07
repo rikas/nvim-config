@@ -7,14 +7,24 @@ return {
     dashboard = { enabled = true },
     indent = {
       enabled = true,
+      indent = {
+        char = "▏",
+        only_current = true,
+        only_scope = false,
+      },
       scope = {
         enabled = true,
-        animate = {
-          enabled = true,
-          easing = "linear",
-          duration = { step = 5, total = 100 },
+        char = "▏",
+        hl = "SnacksIndent5", -- the cyan that I like
+      },
+      animate = {
+        enabled = true,
+        style = "out",
+        easing = "linear",
+        duration = {
+          step = 10,
+          total = 200,
         },
-        hl = { "SnacksIndent5" },
       },
     },
     input = {
@@ -102,13 +112,13 @@ return {
       end,
       desc = "Lazygit Current File History",
     },
-    {
-      "<leader>gg",
-      function()
-        Snacks.lazygit()
-      end,
-      desc = "Lazygit",
-    },
+    -- {
+    --   "<leader>gg",
+    --   function()
+    --     Snacks.lazygit()
+    --   end,
+    --   desc = "Lazygit",
+    -- },
     {
       "<leader>gl",
       function()
