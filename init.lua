@@ -51,5 +51,8 @@ require("rikas.cmp")
 -- Custom hilight groups
 require("rikas.highlights")
 
+-- LSP configurations
 require("rikas.lsp")
+
+-- Terminal in floating window
 require("rikas.floaterminal")
