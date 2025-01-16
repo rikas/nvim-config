@@ -19,7 +19,7 @@ cmp.setup({
     },
   },
   mapping = cmp.mapping.preset.insert({
-    ["<C-Esc>"] = cmp.mapping.close(),
+    ["<C-q>"] = cmp.mapping.close(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
