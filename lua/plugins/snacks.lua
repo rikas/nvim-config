@@ -5,28 +5,6 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
-    indent = {
-      enabled = true,
-      indent = {
-        char = "▏",
-        only_current = true,
-        only_scope = false,
-      },
-      scope = {
-        enabled = true,
-        char = "▏",
-        hl = "SnacksIndent5", -- the cyan that I like
-      },
-      animate = {
-        enabled = true,
-        style = "out",
-        easing = "linear",
-        duration = {
-          step = 10,
-          total = 200,
-        },
-      },
-    },
     input = {
       enabled = true,
       border = "rounded",
@@ -39,7 +17,13 @@ return {
     quickfile = { enabled = true },
     scroll = { enabled = false },
     statuscolumn = { enabled = true },
-    words = { enabled = true },
+    words = { enabled = true }, -- mini.cursorword seems to work better!
+    indent = {
+      enabled = true,
+      animate = {
+        enabled = false,
+      },
+    },
   },
   keys = {
     {
