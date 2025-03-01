@@ -20,6 +20,7 @@ cmp.setup({
   },
   mapping = cmp.mapping.preset.insert({
     ["<C-q>"] = cmp.mapping.close(),
+    ["<C-Esc>"] = cmp.mapping.close(), -- does not work in ghostty :(
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
