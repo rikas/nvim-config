@@ -1,5 +1,5 @@
 -- Change the color of the color column
-vim.cmd([[hi ColorColumn ctermbg=0 guibg=#25253b]])
+-- vim.cmd([[hi ColorColumn ctermbg=0 guibg=#25253b]])
 
 -- Search highlight
 -- default from catppuccin: xxx guifg=#cdd6f5 guibg=#3e5768
