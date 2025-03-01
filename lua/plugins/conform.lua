@@ -3,14 +3,14 @@ return {
   opts = {
     event = { "BufReadPre", "BufNewFile" },
     formatters_by_ft = {
-      javascript = { "prettierd" },
-      typescript = { "prettierd" },
-      typescriptreact = { "prettierd" },
-      javascriptreact = { "prettierd" },
-      json = { "prettierd" },
-      html = { "prettierd" },
-      css = { "prettierd" },
-      scss = { "prettierd" },
+      javascript = { "prettierd", lsp_format = "fallback" },
+      typescript = { "prettierd", lsp_format = "fallback" },
+      typescriptreact = { "prettierd", lsp_format = "fallback" },
+      javascriptreact = { "prettierd", lsp_format = "fallback" },
+      json = { "prettierd", lsp_format = "fallback" },
+      html = { "prettierd", lsp_format = "fallback" },
+      css = { "prettierd", lsp_format = "fallback" },
+      scss = { "prettierd", lsp_format = "fallback" },
       markdown = { "prettierd" },
       yaml = { "yamlfix" },
       lua = { "stylua" },
@@ -18,7 +18,7 @@ return {
       sh = { "shfmt" },
       python = { "black" },
       graphql = { "prettierd" },
-      eruby = { "erb_format" },
+      eruby = { "erb_format", lstp_format = "fallback" },
     },
 
     formatters = {
