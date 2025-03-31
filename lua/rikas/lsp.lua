@@ -167,10 +167,3 @@ vim.keymap.set(
   "<cmd>lua vim.diagnostic.open_float()<cr>",
   { desc = "Open diagnostics" }
 )
-vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next diagnostic" })
-vim.keymap.set(
-  "n",
-  "]d",
-  "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-  { desc = "Previous diagnostic" }
-)
