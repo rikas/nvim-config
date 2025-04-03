@@ -13,11 +13,3 @@ return {
   },
   single_file_support = true,
 }
-
--- Old configuration just for reference
--- ruby_lsp = function()
---   require("lspconfig").ruby_lsp.setup({
---     mason = false,
---     cmd = { vim.fn.expand("~/.rbenv/shims/ruby-lsp") },
---   })
--- end,

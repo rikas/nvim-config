@@ -1,6 +1,6 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { "rubocop", "--lsp" },
+  cmd = { vim.fn.expand("~/.rbend/shims/rubocop"), "--lsp" },
   filetypes = { "ruby" },
   root_markers = {
     ".git",
@@ -12,11 +12,3 @@ return {
     "Gemfile.lock",
   },
 }
-
--- Old configuration just for reference
--- rubocop = function()
---   require("lspconfig").rubocop.setup({
---     mason = false,
---     cmd = { vim.fn.expand("~/.rbenv/shims/rubocop"), "--lsp" },
---   })
--- end,
