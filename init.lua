@@ -53,6 +53,4 @@ require("rikas.highlights")
 
 -- LSP configurations
 require("rikas.lsp")
-
--- Terminal in floating window
-require("rikas.floaterminal")
+require("core.lsp")

@@ -16,7 +16,6 @@ return {
       lua = { "stylua" },
       bash = { "shfmt" },
       sh = { "shfmt" },
-      python = { "black" },
       graphql = { "prettierd" },
       eruby = { "erb_format", lstp_format = "fallback" },
     },

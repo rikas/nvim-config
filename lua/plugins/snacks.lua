@@ -1,5 +1,8 @@
 return {
   "folke/snacks.nvim",
+  init = function()
+    _G.Snacks = require("snacks")
+  end,
   priority = 1000,
   lazy = false,
   opts = {

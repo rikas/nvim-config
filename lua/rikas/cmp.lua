@@ -12,6 +12,7 @@ cmp.setup({
       border = "rounded",
       side_padding = 1,
       col_offset = 1,
+      scrollbar = false,
     },
     documentation = {
       border = "rounded",
@@ -58,7 +59,6 @@ cmp.setup({
   experimental = {
     ghost_text = true, -- we need this for copilot to work properly!
   },
-
   formatting = {
     format = require("lspkind").cmp_format({ mode = "symbol_text" }),
   },

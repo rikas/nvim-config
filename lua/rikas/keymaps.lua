@@ -41,7 +41,3 @@ vim.keymap.set(
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace highlighted word" }
 )
-
--- Use Enter to add new lines above and below
-vim.keymap.set("n", "<CR>", "m`o<Esc>``")
-vim.keymap.set("n", "<S-CR>", "m`O<Esc>``")

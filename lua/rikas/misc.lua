@@ -29,17 +29,17 @@ for _, plugin in pairs(disabled_built_ins) do
 end
 
 -- Add wrapping and spellcheck when editing markdown, text or git commits
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = vim.api.nvim_create_augroup("edit_text", { clear = true }),
-  pattern = { "gitcommit", "markdown", "txt" },
-  desc = "Enable spell checking and text wrapping for certain filetypes",
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-    vim.opt_local.textwidth = 100
-  end,
-})
-
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   group = vim.api.nvim_create_augroup("edit_text", { clear = true }),
+--   pattern = { "gitcommit", "markdown", "txt" },
+--   desc = "Enable spell checking and text wrapping for certain filetypes",
+--   callback = function()
+--     vim.opt_local.wrap = true
+--     vim.opt_local.spell = true
+--     vim.opt_local.textwidth = 100
+--   end,
+-- })
+--
 -- Cool fold stuff
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
