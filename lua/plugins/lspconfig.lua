@@ -1,4 +1,5 @@
 return { -- LSP Configuration & Plugins
+  enable = false,
   "neovim/nvim-lspconfig",
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   dependencies = {
