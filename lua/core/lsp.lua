@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Enable configured language servers
 -- server configurations are in lsp/*.lua and included automatically
 vim.lsp.enable({
+  "clangd",
   "cssls",
   "eslint",
   "html",

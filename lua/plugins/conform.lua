@@ -18,6 +18,7 @@ return {
       sh = { "shfmt" },
       graphql = { "prettierd" },
       eruby = { "erb_format", lstp_format = "fallback" },
+      cpp = { "clang_format" },
     },
 
     formatters = {
