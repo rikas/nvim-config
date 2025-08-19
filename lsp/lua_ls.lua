@@ -19,6 +19,17 @@ return {
       },
       diagnostics = {
         disable = { "lowercase-global" },
+        needFileStatus = {
+          ["codestyle-checl"] = "Any",
+          ["type-check"] = "Opened",
+          ["strict"] = "Any",
+        },
+      },
+      type = {
+        castNumberToInteger = false,
+        weakUnionCheck = true,
+        checkTableShape = true,
+        inferParamType = true,
       },
       workspace = {
         checkThirdParty = false,
