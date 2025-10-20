@@ -90,6 +90,7 @@ return {
         "classList",
         ".*Classes.*",
       },
+      classFunctions = { "tv", "twMerge", "twJoin", "tw", "clsx", "tw\\.[a-z-]+" },
       includeLanguages = {
         eelixir = "html-eex",
         eruby = "erb",
