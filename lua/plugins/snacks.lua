@@ -27,6 +27,12 @@ return {
         enabled = false,
       },
     },
+    scratch = {
+      enabled = true,
+      ft = function()
+        return "markdown" -- force markdown buffer to avoid lsp issues
+      end,
+    },
   },
   keys = {
     {
