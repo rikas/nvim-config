@@ -3,6 +3,7 @@ vim.g.netrw_winsize = 25
 
 vim.opt.cursorline = true -- Enable highlighting of the current line
 
+-- Show line numbers and set them to relative
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -12,7 +13,7 @@ vim.opt.shiftwidth = 2 -- Size of an indent
 vim.opt.showmode = false -- Do not show mode in the command line since we have lualine
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.list = true -- Show some invisible characters (tabs, etc)
-vim.opt.smartindent = false -- neovim smar indentation
+vim.opt.smartindent = false -- neovim smart indentation
 vim.opt.wrap = false -- do not wrap long lines
 
 vim.opt.swapfile = false
