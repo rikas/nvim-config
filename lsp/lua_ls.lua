@@ -18,6 +18,7 @@ return {
         version = "LuaJIT",
       },
       diagnostics = {
+        globals = { "vim" },
         disable = { "lowercase-global" },
         needFileStatus = {
           ["codestyle-checl"] = "Any",
