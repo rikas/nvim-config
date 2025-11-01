@@ -59,7 +59,4 @@ cmp.setup({
   experimental = {
     ghost_text = true, -- we need this for copilot to work properly!
   },
-  formatting = {
-    format = require("lspkind").cmp_format({ mode = "symbol_text" }),
-  },
 })
