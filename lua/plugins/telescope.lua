@@ -1,34 +1,3 @@
-local builtin = require("telescope.builtin")
-local state = require("telescope.state")
-
--- Starts a new picker or resumes a cached one if it exists
-local function resume_or_start(picker_name, picker_func, opts)
-  return function()
-    opts = opts or {}
-
-    -- Try to find a cached picker with the same name
-    local cached_pickers = state.get_global_key("cached_pickers") or {}
-    local picker_index = nil
-
-    -- Search through cached pickers to find matching one
-    for i, cached_picker in ipairs(cached_pickers) do
-      if cached_picker.prompt_title == (opts.prompt_title or picker_name) then
-        picker_index = i
-        break
-      end
-    end
-
-    if picker_index then
-      -- Resume the specific cached picker
-      print("Resuming picker: " .. (opts.prompt_title or picker_name))
-      builtin.resume({ cache_index = picker_index })
-    else
-      -- Start fresh picker
-      picker_func(opts)
-    end
-  end
-end
-
 return {
   { -- Use native fzf (fzf needs to be installed on the system)
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -43,6 +12,7 @@ return {
     },
     config = function()
       local actions = require("telescope.actions")
+      local telescope = require("telescope.telescope")
       require("telescope").setup({
         defaults = {
           mappings = {
@@ -99,25 +69,14 @@ return {
       require("telescope").load_extension("harpoon")
       require("telescope").load_extension("fzf")
 
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffer" })
-      vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help" })
-      vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
-      vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find word under cursor" })
-
-      vim.keymap.set(
-        "n",
-        "<leader>fg",
-        resume_or_start("Live Grep", builtin.live_grep),
-        { desc = "Find in files (grep)" }
-      )
-
-      vim.keymap.set(
-        "n",
-        "<leader>fs",
-        resume_or_start("LSP Document Symbols", builtin.lsp_document_symbols),
-        { desc = "Find symbols" }
-      )
+      vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Find files" })
+      vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Find buffer" })
+      vim.keymap.set("n", "<leader>fh", telescope.help_tags, { desc = "Find help" })
+      vim.keymap.set("n", "<leader>fr", telescope.oldfiles, { desc = "Find recent files" })
+      vim.keymap.set("n", "<leader>fw", telescope.grep_string, { desc = "Find word under cursor" })
+      vim.keymap.set("n", "<leader>fl", telescope.resume, { desc = "Resume last find" })
+      vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Find in files (grep)" })
+      vim.keymap.set("n", "<leader>fs", telescope.lsp_document_symbols, { desc = "Find symbols" })
     end,
   },
 }
