@@ -20,7 +20,7 @@ return {
     quickfile = { enabled = true },
     scroll = { enabled = false },
     statuscolumn = { enabled = true },
-    words = { enabled = true }, -- mini.cursorword seems to work better!
+    words = { enabled = true },
     indent = {
       enabled = true,
       animate = {
