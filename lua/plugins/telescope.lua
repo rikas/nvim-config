@@ -74,9 +74,9 @@ return {
       vim.keymap.set("n", "<leader>fh", telescope.help_tags, { desc = "Find help" })
       vim.keymap.set("n", "<leader>fr", telescope.oldfiles, { desc = "Find recent files" })
       vim.keymap.set("n", "<leader>fw", telescope.grep_string, { desc = "Find word under cursor" })
-      vim.keymap.set("n", "<leader>fl", telescope.resume, { desc = "Resume last find" })
       vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Find in files (grep)" })
       vim.keymap.set("n", "<leader>fs", telescope.lsp_document_symbols, { desc = "Find symbols" })
+      vim.keymap.set("n", "<leader>fl", telescope.resume, { desc = "Resume last find" })
     end,
   },
 }
