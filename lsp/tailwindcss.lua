@@ -5,6 +5,7 @@
 return {
   cmd = { "tailwindcss-language-server", "--stdio" },
   root_markers = {
+    "vite.config.ts",
     "tailwind.config.js",
     "tailwind.config.cjs",
     "tailwind.config.mjs",
