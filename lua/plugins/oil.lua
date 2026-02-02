@@ -4,7 +4,7 @@ return {
   enabled = true,
   config = function()
     require("oil").setup({
-      columns = { "icon" },
+      columns = { "size", "mtime", "icon" },
       view_options = {
         show_hidden = true,
       },
