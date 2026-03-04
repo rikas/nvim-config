@@ -31,7 +31,7 @@ return { -- A set of small packages with common features
     })
     require("mini.pairs").setup()
     require("mini.trailspace").setup()
-    require("mini.splitjoin").setup()
+    require("mini.splitjoin").setup() -- split arguments into multiple lines or join in one line
     require("mini.ai").setup()
 
     -- Do not highlight based on the function above
