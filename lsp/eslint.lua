@@ -3,7 +3,8 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd = { "vscode-eslint-language-server", "--stdio" },
+  -- cmd = { "vscode-eslint-language-server", "--stdio" },
+  cmd = { "eslint_d", "--stdio" },
   filetypes = {
     "javascript",
     "javascriptreact",
