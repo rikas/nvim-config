@@ -69,3 +69,32 @@ require("rikas.highlights")
 -- LSP configurations
 require("rikas.lsp")
 require("core.lsp")
+
+-- Treesitter
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "lua",
+    "javascript",
+    "typescript",
+    "tsx",
+    "css",
+    "scss",
+    "html",
+    "json",
+    "yaml",
+    "markdown",
+    "prisma",
+    "ruby",
+    "go",
+    "python",
+    "rust",
+    "c",
+    "cpp",
+    "java",
+    "typescriptreact",
+    "javascriptreact",
+  },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
